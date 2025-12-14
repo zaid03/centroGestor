@@ -1,0 +1,72 @@
+<div class="dash">
+   <div class="left">
+      <div class="sidebar">
+        <div class="menu">
+          <h2>Bienvenida {{ usucod }}<br> Perfil de {{ perfil }}</h2>
+          <button (click)="logout()">Desconectarse</button>
+        </div>
+
+        <div class="drop-down-menu">
+          <div class="menu">
+            <a class="choice">Proveedores</a>
+            <div class="menu-content">
+              <div class="menu-item">
+                <a class="acTer" [class.disabled]="isDisabled('acTer')" (click)="proveedorees()">Gestión de Proveedores</a>
+                <a class="acCoTer" [class.disabled]="isDisabled('acCoTer')">Consulta de Proveedores</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu">
+            <a class="choice">Gestion de credito</a>
+            <div class="menu-content">
+              <div class="menu-item">
+                <a class="acGBS" [class.disabled]="isDisabled('acGBS')" (click)="navigateTo('acGBS')">Bolsas de crédito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu">
+            <a class="choice">Contabilización</a>
+            <div class="menu-content">
+              <div class="menu-item">
+                <a class="acFac" [class.disabled]="isFacturasDisabled()" [attr.aria-disabled]="isFacturasDisabled()" (click)="facturas()">Gestión de Facturas</a>   
+                <a class="acFacC" [class.disabled]="isDisabled('acFacC')">Consulta de Facturas</a>
+                <a class="acMCon" [class.disabled]="isDisabled('acMCon')">Monitor de contabilización</a>
+              </div>
+            </div>
+          </div>
+          <div class="menu">
+            <a class="choice">Mantenimiento</a>
+            <div class="menu-content">
+              <div class="menu-item">
+                <a class="Fam-Sub" (click)="navigateTo('familia')">Familia y subfamilia</a>
+                <a class="cge margin" (click)="navigateTo('centroGestor')">Centro Gestor</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div> 
+
+    <div class="right">
+      <div class="dashboard">
+        <div class="header-with-logo">
+          <img [src]="logoPath" alt="Logo" class="login-logo">
+          <h1>Panel Principal</h1>
+        </div>
+        <p>Bienvenido al panel principal de la aplicación.</p>
+        <h6>Conectado con:</h6>
+        <div class="parameters">
+          <div class="variable-names">
+            <h4>Entidad: {{ entcod }}</h4>
+            <h4>Ejercicio: {{ eje }}</h4>
+            <div class="cge-class">
+              <h4 class="margin">Centro gestor: {{ centroGestor }}</h4>
+              <button class="cge-btn" (click)="goToCge()">Cambiar Centro Gestor</button>
+            </div>
+            <button class="services-btn">Ver Servicios</button>
+          </div>
+        </div>
+      </div>
+</div>
