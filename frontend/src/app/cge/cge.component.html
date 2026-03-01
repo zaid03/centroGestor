@@ -128,7 +128,7 @@
                             </div>
                             <div class="right">
                                 <div class="on-two">
-                                    <h1>{{selectedCentroGestor.cgecod}}</h1>
+                                    <h1>{{selectedCentroGestor.cgecod || '#'}}</h1>
                                     <p>Orgánica</p>
                                     <textarea
                                         class="mediumText" 
@@ -233,7 +233,10 @@
                 (input)="setCgeToUpper($event)"
                 #codigo
             ></textarea>
-            <textarea class="smallText" #organica></textarea>
+            <textarea 
+                (input)="allowOnlyDigits($event)"
+                class="smallText" 
+                #organica></textarea>
             <textarea
                 class="smallText"
                 (input)="allowOnlyDigits($event)"
